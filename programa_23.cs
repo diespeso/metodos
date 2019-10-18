@@ -3,7 +3,7 @@ using System;
 namespace programa_23 {
   class MainClass {
     public static void Main (string[] args) {
-      ColaPaises cp = new ColaPaises(4); // cambiar a 50.
+      ColaPaises cp = new ColaPaises(50);
       
       bool continuar = true;
 
@@ -19,6 +19,8 @@ namespace programa_23 {
           cp.Insertar(entrada);
         }
       }
+
+      cp.Desplegar();
 
       string mayor_pais = cp.CalcularMayorPais();
       if(mayor_pais == null) {
