@@ -1,0 +1,9 @@
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\bin\Debug\MetodoBiseccion1.exe.config
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\bin\Debug\MetodoBiseccion1.exe
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\bin\Debug\MetodoBiseccion1.pdb
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\obj\Debug\MetodoBiseccion1.csproj.CoreCompileInputs.cache
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\obj\Debug\MetodoBiseccion1.exe
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\obj\Debug\MetodoBiseccion1.pdb
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\obj\Debug\MetodoBiseccion1.csprojAssemblyReference.cache
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\bin\Debug\MathParser.org-mXparser.dll
+C:\Users\edgar\source\repos\MetodoBiseccion1\MetodoBiseccion1\obj\Debug\MetodoBiseccion1.csproj.CopyComplete
