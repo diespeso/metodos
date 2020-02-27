@@ -14,6 +14,8 @@ namespace MetodoBiseccion1
         private static double xr = 0.0;
         private static double xr_anterior = 0.0;
         private static double error = 100.0; //error al 100% al iniciar.
+        
+        private static int cifras = 4; //cifras a considerar al redondeo.
 
         //bandera, si es true es porque el producto fxi * fxr nos dio 0, termina.
         private static bool terminar_por_cero = false;
@@ -91,7 +93,7 @@ namespace MetodoBiseccion1
         /// <returns></returns>
         private static double Evaluar(double x)
         {
-            return funcion.calculate(x);
+            return Math.Round(funcion.calculate(x), cifras);
         }
 
         /// <summary>
@@ -102,7 +104,7 @@ namespace MetodoBiseccion1
         /// <returns></returns>
         private static double CalcularError(double xr_actual, double xr_anterior)
         {
-            return Math.Abs((xr_actual - xr_anterior) / xr_actual) * 100;
+            return Math.Round(Math.Abs((xr_actual - xr_anterior) / xr_actual) * 100, cifras);
         }
 
         /// <summary>
@@ -113,7 +115,7 @@ namespace MetodoBiseccion1
         /// <returns></returns>
         private static double CalcularXr(double xi, double xu)
         {
-            return (xi + xu) / 2;
+            return Math.Round((xi + xu) / 2, cifras);
         }
 
         /// <summary>
