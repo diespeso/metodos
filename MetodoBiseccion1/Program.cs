@@ -14,8 +14,9 @@ namespace MetodoBiseccion1
         private static double xr = 0.0;
         private static double xr_anterior = 0.0;
         private static double error = 100.0; //error al 100% al iniciar.
-        
-        private static int cifras = 4; //cifras a considerar al redondeo.
+        private static int criterio = 0; //criterio de terminación.
+        private static int cifras = 4; //cifras significativas para redondeo.
+        private static int clave_metodo = 0;
 
         //bandera, si es true es porque el producto fxi * fxr nos dio 0, termina.
         private static bool terminar_por_cero = false;
@@ -24,6 +25,17 @@ namespace MetodoBiseccion1
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Lista de métodos:\n1.Biseccion\n2.Falsa posición");
+            Console.Write("Seleccione método: ");
+            clave_metodo = Int32.Parse(Console.ReadLine());
+
+            switch(clave_metodo)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
 
             Console.Write("Introduzca función: ");
             funcion = new Function("f(x) = " + Console.ReadLine());
@@ -36,14 +48,14 @@ namespace MetodoBiseccion1
             //termina asignacion
             Console.WriteLine("Criterios: 0 -> iteraciones\t1 -> error");
             Console.Write("Introduce el número de tu criterio de terminación: ");
-            int criterio = Int32.Parse(Console.ReadLine());
+            criterio = Int32.Parse(Console.ReadLine());
 
             if(criterio == 0) //terminación por número de iteraciones
             {
 
                 Console.Write("Introduce el número de iteraciones deseadas: ");
                 int iteraciones = Int32.Parse(Console.ReadLine());
-                Console.WriteLine("iteración|\t\txi|\txu|\tf(xi)|\txr|\tf(xr)|\tError"); //encabezado
+                Console.WriteLine("iteración|\txi|\txu|\tf(xi)|\txr|\tf(xr)|\tError"); //encabezado
 
                 for (int i = 0; i < iteraciones; i++)
                 {
@@ -53,7 +65,8 @@ namespace MetodoBiseccion1
                         i + 1, xi, xu, Evaluar(xi), xr, Evaluar(xr), error);
                     xr_anterior = xr; //el xr de ahora será el anterior en la sig. iteración.
                     AjustarAbrazo(Evaluar(xi), Evaluar(xr));
-                    if (terminar_por_cero) { break; } //terminar, ya se encontró.
+                    if (terminar_por_cero) {
+                        break; } //terminar, ya se encontró.
                 }
 
             } else if(criterio == 1) //terminación por tolerancia de error.
@@ -115,7 +128,16 @@ namespace MetodoBiseccion1
         /// <returns></returns>
         private static double CalcularXr(double xi, double xu)
         {
-            return Math.Round((xi + xu) / 2, cifras);
+            switch(clave_metodo)
+            {
+                case 1:
+                    return Math.Round((xi + xu) / 2, cifras);
+                case 2:
+                    double fxu = Evaluar(xu);
+                    double fxi = Evaluar(xi);
+                    return Math.Round(xu - (fxu * (xi - xu) / (fxi - fxu)), cifras);
+            }
+            return -1.0; //si falla
         }
 
         /// <summary>
